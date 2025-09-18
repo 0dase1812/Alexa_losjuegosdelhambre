@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Los Juegos del Hambre - Micrositio - By Derly Sanchez 💕</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Los Juegos del Hambre - By Derly Sanchez 💕</h1>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#personajes">Personajes</a>
+      <a href="#peliculas">Películas</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#ia">IA</a>
+      <a href="#mapa">Mapa</a>
+    </nav>
+  </header>
+
+  <!-- ============================= -->
+  <!-- 1. Home – Hoja de Vida -->
+  <!-- ============================= -->
+  <section id="inicio" class="hero">
+    <div class="foto-container">
+      <img src="https://i.postimg.cc/W15hw3wM/Derly-Sanchez.jpg" 
+           alt="Foto Derly Sánchez" 
+           class="foto-principal">
+    </div>
+    
+    <h2 style="text-align:center; color:#ffcc00;">✨ Derly Sánchez ✨</h2>
+    <p style="max-width:800px; margin:auto; text-align:center; font-size:1.1rem; line-height:1.6;">
+      Soy <b>estudiante de Ingeniería</b>, apasionada por la <b>tecnología</b>, 
+      <b>emprendedora</b> como proveedora de arreglos para inmobiliarias con <b>Fixxgoo</b>.  
+      Me gusta la música, el trading y amo profundamente la saga de <b>Los Juegos del Hambre</b>.  
+      Actualmente curso <b>Ciberseguridad en Coursera (Google)</b> y desarrollo proyectos integrales 
+      que combinan innovación, seguridad informática y creatividad. 🚀
+    </p>
+
+    <div style="text-align:center; margin:20px 0;">
+      <a href="mailto:alexase13246@gmail.com" target="_blank" style="margin:0 15px; color:#00ccff; font-weight:bold;">📧 alexase13246@gmail.com</a>
+      <a href="https://instagram.com/0dase_1812" target="_blank" style="margin:0 15px; color:#ff66cc; font-weight:bold;">📷 @0dase_1812</a>
+    </div>
+
+    <div style="max-width:800px; margin:30px auto;">
+      <h3 style="color:#ffcc00;">🚀 Proyectos Previos</h3>
+      <ul>
+        <li><b>Fixxgoo</b> – Emprendimiento integral que se encarga de todo lo que necesita una vivienda para su entrega en venta o arriendo.</li>
+        <li><b>Curso de Ciberseguridad – Google Coursera</b> – Formación práctica en seguridad informática, redes y protección de datos.</li>
+      </ul>
+    </div>
+
+    <div style="max-width:800px; margin:30px auto;">
+      <h3 style="color:#ffcc00;">🛠️ Skills Técnicos</h3>
+      <ul style="columns:2; -webkit-columns:2; -moz-columns:2;">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>FastAPI</li>
+        <li>Git</li>
+        <li>Excel</li>
+        <li>Power BI</li>
+        <li>Ciberseguridad</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- 2. Catálogo de Personajes -->
+  <!-- ============================= -->
+  <section id="personajes">
+    <h2 style="text-align:center; color:#ffcc00;">Un poco de mi amor por esta saga ❤️</h2>
+    <p style="max-width:800px; margin:10px auto; text-align:center; font-size:1rem;">
+      Los personajes de <b>Los Juegos del Hambre</b> son parte de lo que más me inspira y conecta con esta historia.
+    </p>
+    <div id="personajes-container" class="grid"></div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- 3. Catálogo de Películas -->
+  <!-- ============================= -->
+  <section id="peliculas">
+    <h2 style="text-align:center; color:#ffcc00;">Películas</h2>
+    <div id="peliculas-container" class="grid"></div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- 4. Página de Contacto -->
+  <!-- ============================= -->
+<section id="contacto">
+  <h2>Contacto</h2>
+  <form class="form-contacto" id="form-contacto">
+    <input type="text" name="nombre" placeholder="Nombre" required>
+    <input type="email" name="correo" placeholder="Correo" required>
+    <textarea name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+    <button type="submit" class="btn-enviar">Enviar</button>
+    <p class="estado" id="estado"></p>
+  </form>
+</section>
+
+
+  <!-- ============================= -->
+  <!-- 5. Chat con IA -->
+  <!-- ============================= -->
+  <section id="ia">
+    <h2 style="text-align:center; color:#ffcc00;">💡 Pregunta a la IA</h2>
+    <div class="form-ia">
+      <textarea id="ia-pregunta" class="input-ia" placeholder="Escribe tu pregunta aquí..."></textarea>
+      <button id="ia-enviar" class="btn-ia">Preguntar</button>
+    </div>
+    <div id="ia-respuesta" class="respuesta-ia"></div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- 6. Sección con Mapa -->
+  <!-- ============================= -->
+  <section id="mapa">
+    <h2 style="text-align:center; color:#ffcc00;">Lugares de Rodaje</h2>
+    <div id="map"></div>
+  </section>
+
+  <footer>
+    <p>© 2025 - Micrositio de Derly Sánchez | Los Juegos del Hambre</p>
+  </footer>
+
+  <div id="modal">
+    <div class="modal-content">
+      <span onclick="cerrarModal()" class="close-btn">✖</span>
+      <h2 id="modal-titulo"></h2>
+      <div class="modal-body">
+        <img id="modal-imagen" src="" alt="">
+        <p id="modal-descripcion"></p>
+        <iframe id="modal-video" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Script propio -->
+  <script src="script.js"></script>
+</body>
+</html>

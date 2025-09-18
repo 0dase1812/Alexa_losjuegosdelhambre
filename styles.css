@@ -1,0 +1,429 @@
+/* ====== Estilos globales ====== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+  color: #f4f4f4;
+  overflow-x: hidden;
+}
+
+header {
+  background: #111;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ffcc00;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  margin: 0;
+  color: #ffcc00;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+nav a {
+  color: #f4f4f4;
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+nav a:hover { color: #ffcc00; }
+
+/* ====== Secciones ====== */
+section {
+  padding: 60px 20px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* ====== Hero principal ====== */
+.hero {
+  text-align: center;
+  padding: 100px 20px 80px;
+}
+
+/* Contenedor que rebota */
+.foto-container {
+  display: inline-block;
+  animation: bounce 1.5s ease-in-out infinite;
+}
+
+.foto-principal {
+  width: 400px;
+  height: 500px;
+  border-radius: 15%;
+  object-fit: cover;
+  margin-bottom: 25px;
+  border: 5px solid transparent;
+  background: linear-gradient(135deg, #ffcc00, #e63946);
+  padding: 5px;
+  box-shadow: 0 0 35px rgba(255, 204, 0, 0.7),
+              0 0 60px rgba(230, 57, 70, 0.5);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.foto-principal:hover {
+  transform: scale(1.12) rotate(-2deg);
+  box-shadow: 0 0 50px rgba(255, 204, 0, 1),
+              0 0 90px rgba(230, 57, 70, 0.8);
+}
+
+/* Rebote */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-35px); }
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ffcc00;
+  text-shadow: 0 0 15px rgba(255, 204, 0, 0.9), 0 0 30px rgba(230, 57, 70, 0.7);
+  font-family: 'Cinzel', serif;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  max-width: 750px;
+  margin: auto;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #ddd;
+}
+
+/* ====== Grid y Cards ====== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #ffcc00;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(255, 204, 0, 0.4);
+}
+.card h3 {
+  margin: 10px 0;
+  color: #ffcc00;
+}
+
+/* ====== Personajes ====== */
+#personajes-container, #peliculas-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.card-personaje {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 360px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #e63946;
+}
+
+.card-personaje:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(230, 57, 70, 0.6);
+}
+
+.personaje-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.7);
+  transition: filter 0.3s ease;
+}
+
+.card-personaje:hover .personaje-img { filter: brightness(1); }
+
+.personaje-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0));
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+.personaje-info h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #ffcc00;
+}
+
+.personaje-info p {
+  margin: 5px 0 10px 0;
+  font-size: 0.9rem;
+}
+
+.personaje-info button {
+  background: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.personaje-info button:hover { background: #c91d2e; }
+
+/* ====== IA Chat (NUEVO) ====== */
+#ia {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.form-ia {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-ia {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  background: #111;
+  color: #fff;
+  border: 2px solid #444;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.input-ia:focus {
+  border-color: #ffcc00;
+  outline: none;
+  box-shadow: 0 0 10px #ffcc00;
+}
+
+.btn-ia {
+  padding: 12px 18px;
+  background: linear-gradient(45deg, #ffcc00, #ff9900);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #000;
+  transition: 0.3s;
+}
+
+.btn-ia:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ffcc00;
+}
+
+.respuesta-ia {
+  margin-top: 15px;
+  background: #1a1a1a;
+  padding: 15px;
+  border: 2px solid #ffcc00;
+  border-radius: 10px;
+  min-height: 50px;
+  text-align: left;
+  line-height: 1.5;
+}
+
+/* ============================= */
+/* Sección de Contacto Vertical */
+/* ============================= */
+#contacto {
+  background: #111;
+  padding: 30px 20px 50px; /* 🔹 menos espacio arriba, más abajo */
+  border-radius: 20px;
+  max-width: 700px;
+  margin: 60px auto;
+  box-shadow: 0 0 25px rgba(255, 204, 0, 0.7);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+#contacto h2 {
+  color: #ffcc00;
+  font-size: 2rem;
+  text-align: center;
+  margin: 0 0 25px; /* 🔹 elimina el espacio extra arriba */
+  font-weight: bold;
+}
+
+/* Formulario vertical */
+.form-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+/* Ajustar inputs y textarea */
+.form-contacto input,
+.form-contacto textarea {
+  width: 100%;
+  padding: 14px 16px; /* Igualar padding */
+  border: 2px solid #333;
+  border-radius: 10px;
+  font-size: 16px;
+  background: #1a1a1a;
+  color: #fff;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+  transition: 0.3s ease;
+  box-sizing: border-box; /* 🔹 Para que respeten el ancho */
+}
+
+/* Asegurar que todos tengan la misma alineación */
+.form-contacto input {
+  height: 48px; /* 🔹 Misma altura fija para inputs */
+}
+
+.form-contacto textarea {
+  min-height: 140px;
+  resize: none; /* 🔹 Evita que lo estiren y se vea raro */
+}
+
+/* Centrar botón con inputs */
+.btn-enviar {
+  width: 100%; /* 🔹 Que ocupe todo el ancho igual que los inputs */
+  padding: 16px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #ffcc00, #ff9900);
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-enviar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
+}
+
+/* Estado de envío */
+.estado {
+  margin-top: 12px;
+  text-align: center;
+  font-weight: bold;
+  display: none;
+}
+
+.estado.exito {
+  color: #00ff88;
+}
+
+.estado.error {
+  color: #ff4444;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ====== Mapa ====== */
+#map {
+  height: 420px;
+  margin-top: 20px;
+  border: 2px solid #ffcc00;
+  border-radius: 12px;
+}
+
+/* ====== Footer ====== */
+footer {
+  background: #111;
+  text-align: center;
+  padding: 18px;
+  border-top: 2px solid #ffcc00;
+  margin-top: 50px;
+  font-size: 0.9rem;
+}
+
+/* ====== Modal ====== */
+#modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.95);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+#modal .modal-content {
+  background: #1e1e1e;
+  padding: 25px;
+  border-radius: 14px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 95vh;
+  border: 2px solid #ffcc00;
+  position: relative;
+  overflow-y: auto;
+}
+
+#modal h2 {
+  color: #ffcc00;
+  margin-bottom: 12px;
+}
+
+#modal img {
+  max-width: 300px;
+  margin: 20px auto;
+  display: block;
+  border: 3px solid #ffcc00;
+  border-radius: 12px;
+}
+
+#modal iframe {
+  width: 100%;
+  height: 340px;
+  border: 2px solid #ffcc00;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+#modal .close-btn {
+  position: absolute;
+  top: 12px; right: 25px;
+  cursor: pointer;
+  font-size: 28px;
+  color: #ffcc00;
+  font-weight: bold;
+}
